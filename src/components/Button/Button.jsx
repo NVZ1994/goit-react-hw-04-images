@@ -4,14 +4,9 @@ import PropTypes from 'prop-types'
 
 export function Button({ onClick }) {
     return (
-
         <div className='Button-wrapper'>
-
-        <button 
-            className='Button'
-            type='button'
-                onClick={onClick}>Load more</button>
-            </div>
+        <button className='Button' type='button' onClick={onClick}>Load more</button>
+        </div>
     )
 }
 

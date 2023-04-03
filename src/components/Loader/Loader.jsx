@@ -1,19 +1,16 @@
 import React from "react";
-import { Audio } from 'react-loader-spinner';
-import './Loader.css';
+import { Circles } from 'react-loader-spinner'
 
 export function Loader() {
     return (
-        <div className='Overlay'>
-            <Audio
+        <div className="Overlay">
+            <Circles
                 height="80"
                 width="80"
-                radius="9"
-                color="green"
-                ariaLabel="loading"
-                wrapperStyle
-                wrapperClass
-                />
+                color="#4fa94d"
+                ariaLabel="circles-loading"
+                visible={true}
+            />
         </div>
     )
 }
