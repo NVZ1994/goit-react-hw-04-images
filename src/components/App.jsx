@@ -62,6 +62,7 @@ export default function App() {
   return (
     <div className='App'>
       <Searchbar onSubmit={handleSearch} />
+      {error && <div className="error">{error.message}</div>}
       <div className='Container'>
         <ImageGallery searchResults={searchResults} openModal={handleOpenModal}/>
         {showLoadMore && <Button onClick={handleLoadMore} />}

@@ -10,3 +10,10 @@
     margin-right: auto;
     margin-left: auto;
 }
+
+.error {
+    color: red;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
