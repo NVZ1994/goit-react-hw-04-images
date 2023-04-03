@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { ImageGallery } from "./ImageGallery/ImageGallery";
-import { Searchbar } from "./Searchbar/Searchbar";
+import React, { useState, useEffect } from 'react';
+import { ImageGallery } from './ImageGallery/ImageGallery';
+import { Searchbar } from './Searchbar/Searchbar';
 import { Button } from './Button/Button';
-import {Loader} from './Loader/Loader'
-import {Modal} from "./Modal/Modal";
-import { getPictures } from './API/Api'
-import './App.css'
+import { Loader } from './Loader/Loader';
+import { Modal } from './Modal/Modal';
+import { getPictures } from './API/Api';
+import './App.css';
 
 export default function App() {
   const [search, setSearch] = useState('');
@@ -26,7 +26,7 @@ export default function App() {
         const searchResults = await response.json();
         const hits = searchResults.hits;
         setShowLoadMore(hits.length % 12 === 0 && hits.length !== 0);
-        setSearchResults((prevResults) => [...prevResults, ...hits]);
+        setSearchResults(prevResults => [...prevResults, ...hits]);
       } catch (error) {
         setError(error);
       } finally {
@@ -39,14 +39,14 @@ export default function App() {
     }
   }, [search, page]);
 
-  const handleSearch = (data) => {
+  const handleSearch = data => {
     setSearch(data.trim().toLowerCase());
     setPage(1);
     setSearchResults([]);
   };
 
   const handleLoadMore = () => {
-    setPage((prevPage) => prevPage + 1);
+    setPage(prevPage => prevPage + 1);
   };
 
   const handleOpenModal = ({ largeImageURL, tags }) => {
@@ -60,15 +60,24 @@ export default function App() {
   };
 
   return (
-    <div className='App'>
+    <div className="App">
       <Searchbar onSubmit={handleSearch} />
       {error && <div className="error">{error.message}</div>}
-      <div className='Container'>
-        <ImageGallery searchResults={searchResults} openModal={handleOpenModal}/>
+      <div className="Container">
+        <ImageGallery
+          searchResults={searchResults}
+          openModal={handleOpenModal}
+        />
         {showLoadMore && <Button onClick={handleLoadMore} />}
       </div>
-      {loader && (<Loader />)}
-      {showModal && (<Modal closeModal={handleCloseModal} picture={modalPictureURL} alt={modalPictureALT} />)}
+      {loader && <Loader />}
+      {showModal && (
+        <Modal
+          closeModal={handleCloseModal}
+          picture={modalPictureURL}
+          alt={modalPictureALT}
+        />
+      )}
     </div>
   );
 }

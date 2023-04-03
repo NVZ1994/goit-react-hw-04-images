@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import './Modal.css';
 
 function Modal({ closeModal, picture, alt }) {
-
   useEffect(() => {
-    const handleEscape = (event) => {
+    const handleEscape = event => {
       if (event.code === 'Escape') {
         closeModal();
       }
@@ -18,15 +17,15 @@ function Modal({ closeModal, picture, alt }) {
     };
   }, [closeModal]);
 
-  const handleCloseModal = (event) => {
+  const handleCloseModal = event => {
     if (event.target === event.currentTarget) {
       closeModal();
     }
   };
 
   return (
-    <div className='Overlay' onClick={handleCloseModal}>
-      <div className='Modal'>
+    <div className="Overlay" onClick={handleCloseModal}>
+      <div className="Modal">
         <img src={picture} alt={alt} />
       </div>
     </div>
@@ -39,4 +38,4 @@ Modal.propTypes = {
   alt: PropTypes.string.isRequired,
 };
 
-export {Modal};
+export { Modal };
