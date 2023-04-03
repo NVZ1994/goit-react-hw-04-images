@@ -1,9 +1,10 @@
 import React from "react";
-import { Audio } from 'react-loader-spinner'
+import { Audio } from 'react-loader-spinner';
+import './Loader.css';
 
 export function Loader() {
     return (
-        <div className="Overlay">
+        <div className='Overlay'>
             <Audio
                 height="80"
                 width="80"
